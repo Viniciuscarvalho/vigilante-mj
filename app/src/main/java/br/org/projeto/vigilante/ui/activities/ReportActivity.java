@@ -126,8 +126,8 @@ public class ReportActivity extends AppCompatActivity implements GoogleApiClient
     @ViewById(R.id.report_time)
     protected TextView mTimeText;
 
-    @ViewById(R.id.report_corporation)
-    protected Spinner mCorporationSpinner;
+//    @ViewById(R.id.report_corporation)
+//    protected Spinner mCorporationSpinner;
 
     @ViewById(R.id.report_type)
     protected Spinner mTypeSpinner;
@@ -169,7 +169,7 @@ public class ReportActivity extends AppCompatActivity implements GoogleApiClient
 
     private Calendar mDateTime;
 
-    private List<CorporationJson> mCorporationList;
+//    private List<CorporationJson> mCorporationList;
 
     private List<TypeJson> mTypeList;
 
@@ -227,49 +227,49 @@ public class ReportActivity extends AppCompatActivity implements GoogleApiClient
         mDateText.setText(FormatUtil.formatDate(mDateTime.getTime()));
         mTimeText.setText(FormatUtil.formatTime(mDateTime.getTime()));
 
-        updateSpinners();
+        //updateSpinners();
 
         //noinspection deprecation
         mImagePreview.setAlpha(127);
     }
 
-    @UiThread
-    protected void updateSpinners() {
-        VigilanteAPI.getServices(this).fetchCorporation(new Callback<List<CorporationJson>>() {
-            @Override
-            public void success(List<CorporationJson> corporationJsons, Response response) {
-                setCorporationSpinner(corporationJsons);
-            }
+//    @UiThread
+//    protected void updateSpinners() {
+//        VigilanteAPI.getServices(this).fetchCorporation(new Callback<List<CorporationJson>>() {
+//            @Override
+//            public void success(List<CorporationJson> corporationJsons, Response response) {
+//                setCorporationSpinner(corporationJsons);
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                setCorporationSpinner(new ArrayList<CorporationJson>(0));
+//            }
+//        });
+//
+//        VigilanteAPI.getServices(this).fetchType(new Callback<List<TypeJson>>() {
+//            @Override
+//            public void success(List<TypeJson> typeJsons, Response response) {
+//                setTypeSpinner(typeJsons);
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                setTypeSpinner(new ArrayList<TypeJson>(0));
+//            }
+//        });
+//    }
 
-            @Override
-            public void failure(RetrofitError error) {
-                setCorporationSpinner(new ArrayList<CorporationJson>(0));
-            }
-        });
 
-        VigilanteAPI.getServices(this).fetchType(new Callback<List<TypeJson>>() {
-            @Override
-            public void success(List<TypeJson> typeJsons, Response response) {
-                setTypeSpinner(typeJsons);
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                setTypeSpinner(new ArrayList<TypeJson>(0));
-            }
-        });
-    }
-
-
-    @UiThread
-    protected void setCorporationSpinner(List<CorporationJson> list) {
-        mCorporationList = list;
-        mCorporationList.add(0, new CorporationJson(0, getString(R.string.report_spinner_zero)));
-        ArrayAdapter<CorporationJson> corporationAdapter = new ArrayAdapter<>(this, R.layout.spinner_item,
-                mCorporationList);
-        corporationAdapter.setDropDownViewResource(R.layout.spinner_item);
-        mCorporationSpinner.setAdapter(corporationAdapter);
-    }
+//    @UiThread
+//    protected void setCorporationSpinner(List<CorporationJson> list) {
+//        mCorporationList = list;
+//        mCorporationList.add(0, new CorporationJson(0, getString(R.string.report_spinner_zero)));
+//        ArrayAdapter<CorporationJson> corporationAdapter = new ArrayAdapter<>(this, R.layout.spinner_item,
+//                mCorporationList);
+//        corporationAdapter.setDropDownViewResource(R.layout.spinner_item);
+//        mCorporationSpinner.setAdapter(corporationAdapter);
+//    }
 
 
     @UiThread
@@ -565,10 +565,10 @@ public class ReportActivity extends AppCompatActivity implements GoogleApiClient
             return;
         }
 
-        if (mCorporationSpinner.getSelectedItemPosition() < 1) {
-            AppUtil.showToast(this, R.string.report_error_corporation);
-            return;
-        }
+//        if (mCorporationSpinner.getSelectedItemPosition() < 1) {
+//            AppUtil.showToast(this, R.string.report_error_corporation);
+//            return;
+//        }
 
         // Success
         makeVoObject();
@@ -590,9 +590,9 @@ public class ReportActivity extends AppCompatActivity implements GoogleApiClient
             reportVO.setContact(mReportContact.getText().toString());
         }
 
-        if (mCorporationSpinner.getSelectedItemPosition() > 0) {
-            reportVO.setCorporation((CorporationJson) mCorporationSpinner.getSelectedItem());
-        }
+//        if (mCorporationSpinner.getSelectedItemPosition() > 0) {
+//            reportVO.setCorporation((CorporationJson) mCorporationSpinner.getSelectedItem());
+//        }
         if (mTypeSpinner.getSelectedItemPosition() > 0) {
             reportVO.setType((TypeJson) mTypeSpinner.getSelectedItem());
         }
