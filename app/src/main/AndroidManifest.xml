@@ -62,6 +62,9 @@
         <activity android:name=".ui.activities.SearchResultActivity_"
             android:label="@string/search_result_title"
             android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".ui.activities.InfoActivity_"
+            android:label="@string/info_title"
+            android:screenOrientation="sensorPortrait" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
