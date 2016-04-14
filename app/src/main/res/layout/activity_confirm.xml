@@ -45,7 +45,7 @@
                 style="@style/confirm_text_style" />
 
             <TextView
-                android:id="@+id/confirm_corporation"
+                android:id="@+id/confirm_convenio"
                 style="@style/confirm_text_style" />
 
             <TextView

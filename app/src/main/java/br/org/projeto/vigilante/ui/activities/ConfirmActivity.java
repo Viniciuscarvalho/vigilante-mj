@@ -56,8 +56,8 @@ public class ConfirmActivity extends AppCompatActivity {
     @ViewById(R.id.confirm_occcurrence)
     protected TextView mOccurrence;
 
-    @ViewById(R.id.confirm_corporation)
-    protected TextView mCorporation;
+    @ViewById(R.id.confirm_convenio)
+    protected TextView mConvenio;
 
     @ViewById(R.id.confirm_type)
     protected TextView mType;
@@ -131,11 +131,12 @@ public class ConfirmActivity extends AppCompatActivity {
         setText(mAddress, R.string.confirm_address, mReportVO.getAddressComplete());
         setText(mDateTime, R.string.confirm_date, FormatUtil.formatDateTime(mReportVO.getDateTime()));
         setText(mOccurrence, R.string.confirm_occcurrence, mReportVO.getOccurrence());
-        if (mReportVO.getCorporation() != null) {
-            setText(mCorporation, R.string.confirm_corporation, mReportVO.getCorporation().toString());
-        } else {
-            mCorporation.setVisibility(View.GONE);
-        }
+        setText(mConvenio, R.string.confirm_convenio, mReportVO.getCorporation().toString());
+//        if (mReportVO.getCorporation() != null) {
+//            setText(mCorporation, R.string.confirm_corporation, mReportVO.getCorporation().toString());
+//        } else {
+//            mCorporation.setVisibility(View.GONE);
+//        }
         if (mReportVO.getType() != null) {
             setText(mType, R.string.confirm_type, mReportVO.getType().toString());
         } else {

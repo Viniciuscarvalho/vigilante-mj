@@ -83,6 +83,7 @@
     <string name="confirm_date">Data \n%S</string>
     <string name="confirm_occcurrence">Ocorrência \n%S</string>
     <string name="confirm_corporation">Corporação \n%S</string>
+    <string name="confirm_convenio">Convênio \n%S</string>
     <string name="confirm_type">Natureza de denúncia \n%S</string>
     <string name="confirm_name">Nome \n%S</string>
     <string name="confirm_contact">Contato \n%S</string>
